@@ -2,6 +2,7 @@ package com.habitjournal.habitjournalapi.infrastrusture.config;
 
 import com.habitjournal.habitjournalapi.application.HabitService;
 import com.habitjournal.habitjournalapi.domain.ports.in.CreateHabitUseCase;
+import com.habitjournal.habitjournalapi.domain.ports.in.RetrieveHabitsUseCase;
 import com.habitjournal.habitjournalapi.domain.ports.out.HabitRepositoryPort;
 import com.habitjournal.habitjournalapi.infrastrusture.persistence.jpa.HabitJpaAdapter;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +18,11 @@ public class ApplicationConfig {
 
     @Bean
     public CreateHabitUseCase createHabitUseCase(HabitRepositoryPort habitRepositoryPort) {
+        return new HabitService(habitRepositoryPort);
+    }
+
+    @Bean
+    public RetrieveHabitsUseCase retrieveHabitsUseCase(HabitRepositoryPort habitRepositoryPort) {
         return new HabitService(habitRepositoryPort);
     }
 

@@ -1,6 +1,7 @@
 package com.habitjournal.habitjournalapi.infrastrusture.web.handler;
 
 import com.habitjournal.habitjournalapi.application.exceptions.DuplicateHabitException;
+import com.habitjournal.habitjournalapi.application.exceptions.HabitNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -18,6 +19,11 @@ import java.util.Map;
 public class GlobalExceptionHandler {
     @ExceptionHandler(DuplicateHabitException.class)
     public ResponseEntity<String> handleDuplicateHabit(DuplicateHabitException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(HabitNotFoundException.class)
+    public ResponseEntity<String> handleHabitNotFound(HabitNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
     }
 
