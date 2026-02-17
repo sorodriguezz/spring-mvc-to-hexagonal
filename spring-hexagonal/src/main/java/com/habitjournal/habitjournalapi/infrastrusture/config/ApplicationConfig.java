@@ -5,15 +5,20 @@ import com.habitjournal.habitjournalapi.domain.ports.in.CreateHabitUseCase;
 import com.habitjournal.habitjournalapi.domain.ports.in.RetrieveHabitsUseCase;
 import com.habitjournal.habitjournalapi.domain.ports.out.HabitRepositoryPort;
 import com.habitjournal.habitjournalapi.infrastrusture.persistence.jpa.HabitJpaAdapter;
+import com.habitjournal.habitjournalapi.infrastrusture.persistence.mongo.HabitMongoAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ApplicationConfig {
 
+//    @Bean
+//    public HabitRepositoryPort habitRepositoryPort(HabitJpaAdapter habitJpaAdapter) {
+//        return habitJpaAdapter;
+//    }
     @Bean
-    public HabitRepositoryPort habitRepositoryPort(HabitJpaAdapter habitJpaAdapter) {
-        return habitJpaAdapter;
+    public HabitRepositoryPort habitRepositoryPort(HabitMongoAdapter habitMongoAdapter) {
+        return habitMongoAdapter;
     }
 
     @Bean
