@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class HabitReponseDTO {
-    private Long id;
+    private String id;
     private String name;
     private List<LocalDateTime> logs;
 }

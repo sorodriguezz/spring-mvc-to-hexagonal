@@ -10,8 +10,8 @@ import java.util.List;
 @Entity
 @Table(name = "habits")
 public class HabitDocument {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Id
+    private String id;
     private String name;
 
     @OneToMany(mappedBy = "habit", cascade = CascadeType.ALL, orphanRemoval = true)

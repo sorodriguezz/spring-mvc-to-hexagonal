@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface HabitMongoRepository extends JpaRepository<HabitDocument, Long> {
+public interface HabitMongoRepository extends JpaRepository<HabitDocument, String> {
     Optional<HabitDocument> findByName(String name);
 }
